@@ -1,0 +1,24 @@
+body {
+    overflow: hidden;
+}
+
+.sticky-top {
+    z-index: 900;
+}
+
+.nav-bar {
+    height: 10vh;
+}
+
+.nav-item {
+    margin-left: 1em;
+}
+
+#trip {
+    margin: 1em;
+}
+
+#trip-plan {
+    height: 90vh;
+    overflow-y: scroll;
+}
