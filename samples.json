@@ -1,0 +1,59 @@
+{
+    "name":"Visiting the moon",
+    "participants": [
+        {
+            "name": "Mark"
+        },
+        {
+            "name": "Ann"
+        },
+        {
+            "name": "Megan"
+        },
+        {
+            "name": "Kim"
+        }
+    ],
+    "events": [
+        {
+            "name": "SpaceX rocket trip (travel event sample)",
+            "type": "travel", -- travel, housing, activity
+            "subtype": "rocket", -- car, train, bus, ferry, plane, sailboat, boat, cruiseship, cablecar, bike, walk, rocket
+            "start-date": "2024-03-25T12:00:00Z",
+            "end-date": "2024-03-26T12:00:00Z",
+            "start-place": "Florida",
+            "end-place": "Moon surface",
+            "cost": {
+                "type": "per-person", -- per-person, total, detailed
+                "currency": "USD",
+                "value": 12000 -- value or (detailed) dict of values by participant's names.
+            },
+            "notes": "This will be EEEEPICCCCC!"
+        },
+        {
+            "name": "Moon base Grand Hotel (housing event sample)",
+            "type": "housing",
+            "start-date": "2024-03-26T12:00:00Z",
+            "end-date": "2024-03-28T12:00:00Z",
+            "place": "Moon surface",
+            "cost": {
+                "type": "per-person",
+                "currency": "USD",
+                "value": 2000
+            },
+            "notes": "I hope the beds are good..."
+        },
+        {
+            "name": "Moon landing site (activity event sample)",
+            "type": "activity",
+            "date": "2024-03-27T12:00:00Z",
+            "place": "Sea of Tranquility",
+            "cost": {
+                "type": "per-person",
+                "currency": "USD",
+                "value": 100
+            },
+            "notes": "History was made here."
+        }
+    ]
+}
