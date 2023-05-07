@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link bg-success text-secondary rounded-2" href="#"><i class="bi-journal-plus"></i></a>
+                        <a class="nav-link bg-success text-secondary rounded-2" href="#" id="new-trip"><i class="bi-journal-plus"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link bg-primary text-secondary rounded-2" href="#"><i class="bi-save-fill"></i></a>
@@ -45,26 +45,14 @@
             <div class="sticky-top bg-light">
                 <div id="trip-details" class="card text-white bg-primary mb-3">
                     <div class="card-header">
-                        <input type="text" name="trip-name" id="trip-name" placeholder="Visiting the Moon" class="border-primary">
+                        <h4 id="trip-name" class="border-primary">Visiting the Moon</h4>
                     </div>
                     <div class="card-body">
                         <p class="card-title">From the <span id="trip-start">"start date"</span> to the <span id="trip-end">"end date"</span>.</p>
                         <p class="card-text">With:<button class="btn btn-sm btn-success" id="add-participant"><i class="bi-person-plus"></i></button></p>
                         <div id="participant-list" class="d-flex flex-wrap flex-row">
                             <div class="participant">
-                                <span class="participant-name">participant1</span>
-                                <button class="btn btn-sm"><i class="bi-trash3 text-danger"></i></button>
-                            </div>
-                            <div class="participant">
-                                <span class="participant-name">participant2</span>
-                                <button class="btn btn-sm"><i class="bi-trash3 text-danger"></i></button>
-                            </div>
-                            <div class="participant">
-                                <span class="participant-name">participant3</span>
-                                <button class="btn btn-sm"><i class="bi-trash3 text-danger"></i></button>
-                            </div>
-                            <div class="participant">
-                                <span class="participant-name">participant4</span>
+                                <span class="participant-name">demo participant</span>
                                 <button class="btn btn-sm"><i class="bi-trash3 text-danger"></i></button>
                             </div>
                         </div>
@@ -72,44 +60,8 @@
                 </div>
                 <hr class="border border-dark"/>
             </div>
-            <div class="card border-primary mb-3">
-                <div class="card-header row">
-                    <input type="text" name="event-name" id="event-name" placeholder="SpaceX rocket trip" class="border-primary col">
-                    <div class="dropdown col">
-                        <a class="dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Travel type</a>
-                        <div class="dropdown-menu travel-type-dropdown-menu">
-                            <a class="dropdown-item" href="#">TODO:</a>
-                            <a class="dropdown-item" href="#">Fill</a>
-                            <a class="dropdown-item" href="#">from</a>
-                            <a class="dropdown-item" href="#">database</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">Primary card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-success mb-3">
-                <div class="card-header">Housing event</div>
-                <div class="card-body">
-                    <h4 class="card-title">Success card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-warning mb-3">
-                <div class="card-header">Activity event</div>
-                <div class="card-body">
-                    <h4 class="card-title">Warning card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-dark mb-3">
-                <div class="card-header">Other event</div>
-                <div class="card-body">
-                    <h4 class="card-title">Dark card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+            <div id="event-list">
+                
             </div>
         </div>
         
@@ -124,11 +76,110 @@
         </div>
     </div>
 
+    <div id="default-blocks" class="hidden">
+        
+        <div id="default-base-event" class="card border-dark mb-3">
+            <div class="card-header">
+                <div class="row">
+                    <div class="event-name col">Default Base Event</div>
+                    <div class="event-subtype col">Default Subtype</div>
+                </div>
+            </div>
+            <div class="card-body">
+                Default event, please choose a type on the side pannel.
+            </div>
+        </div>
+        
+        <div id="default-travel-event" class="card border-primary mb-3">
+            <div class="card-header">
+                <div class="row">
+                    <div class="event-name col-5">Default Travel Event</div>
+                    <div class="event-subtype col-4">Default Subtype</div>
+                    <div class="event-cost col-3">
+                        <span class="cost-val">0.00</span>
+                        <span class="cost-currency">USD</span>
+                        <span class="cost-type">
+                            <i class="bi-person"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">From: <span class="start-place">Here</span></div>
+                    <div class="col">To: <span class="end-place">There</span></div>
+                </div>
+                <div class="row">
+                    <div class="col"><span class="start-date">date:time</span></div>
+                    <div class="col"><span class="end-date">date:time</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="default-housing-event" class="card border-success mb-3">
+            <div class="card-header">
+                <div class="row">
+                    <div class="event-name col-5">Default Housing Event</div>
+                    <div class="event-subtype col-4">Default Subtype</div>
+                    <div class="event-cost col-3">
+                        <span class="cost-val">0.00</span>
+                        <span class="cost-currency">USD</span>
+                        <span class="cost-type">
+                            <i class="bi-person"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>At: <span class="place">Here</span></div>
+                <div class="row">
+                    <div class="col">From: <span class="start-date">date:time</span></div>
+                    <div class="col">To: <span class="end-date">date:time</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="default-activity-event" class="card border-warning mb-3">
+            <div class="card-header">
+                <div class="row">
+                    <div class="event-name col-5">Default Activity Event</div>
+                    <div class="event-subtype col-4">Default Subtype</div>
+                    <div class="event-cost col-3">
+                        <span class="cost-val">0.00</span>
+                        <span class="cost-currency">USD</span>
+                        <span class="cost-type">
+                            <i class="bi-person"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">At: <span class="place">Here</span></div>
+                    <div class="col">On: <span class="date">date:time</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="new-event row">
+            <hr class="small-hr col-4 border border-dark">
+            <div class="col-2 text-center">
+                <button class="btn btn-outline-success new-event-btn text-secondary">
+                    <i class="bi-plus" style="-webkit-text-stroke: 2px"></i>
+                </button>
+            </div>
+            <hr class="small-hr col-4 border border-dark">
+        </div>
+
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
 
     <script src="secrets.js"></script>
     <script src="type.js"></script>
+    <script src="ui.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

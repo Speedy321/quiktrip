@@ -37,3 +37,14 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.small-hr {
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1.5em;
+    padding: 0;
+}
+
+.new-event-btn {
+    height: 3em;
+}

@@ -28,13 +28,13 @@ housing_subtypes = [
 ]
 
 activity_subtypes = [
-    "restorant",
+    "restaurant",
     "museum",
     "zoo", 
     "aquarium",
     "park",
     "visit",
-    "nature",
+    "hike",
     "theme-park",
     "day-trip",
     "other"
@@ -52,15 +52,14 @@ empty_detailed_cost = {
     "value": []
 }
 
-empty_travel_event = {
+empty_event = {
     "name": "",
-    "type": "travel",
-    "subtype": "other",
-    "start-date": "",
-    "end-date": "",
-    "start-place": "",
-    "end-place": "",
-    "cost": empty_cost,
-    "notes": ""
+    "type": "default",
+    "subtype": "none"
+}
 
+empty_trip = {
+    "name":"",
+    "participants": [],
+    "events": []
 }
